@@ -1,8 +1,10 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:ecommerce_app/core/handler/auth_handler/auth_handler_shared_pref.dart';
 import 'package:ecommerce_app/core/network_handler/api_constants.dart';
 import 'package:ecommerce_app/core/network_handler/api_interface.dart';
+import 'package:get_it/get_it.dart';
 
 import 'api_logs_interceptors.dart';
 
@@ -21,13 +23,16 @@ class DioApiClient implements ApiInterface {
   _initInterceptors() {
     _dio.interceptors.addAll([
       InterceptorsWrapper(
-        onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
+        onRequest:
+            (RequestOptions options, RequestInterceptorHandler handler) async {
           // Do something before request is sent.
           // If you want to resolve the request with custom data,
           // you can resolve a `Response` using `handler.resolve(response)`.
           // If you want to reject the request with a error message,
           // you can reject with a `DioException` using `handler.reject(dioError)`.
           options.headers["Content-Type"] = "application/json";
+          options.headers["token"] =
+              await GetIt.I<AuthHandlerSharedPref>().getToken();
 
           return handler.next(options);
         },
