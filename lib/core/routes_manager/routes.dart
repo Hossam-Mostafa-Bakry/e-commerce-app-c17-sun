@@ -1,4 +1,5 @@
 class Routes {
+  static const String initial = "/";
   static const String cartRoute = "/cart";
   static const String mainRoute = "/main";
   static const String productsScreenRoute = "/products";

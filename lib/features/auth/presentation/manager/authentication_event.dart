@@ -8,7 +8,13 @@ sealed class AuthenticationEvent extends Equatable {
 }
 
 final class AuthenticationEventSignIn extends AuthenticationEvent {
-
   final SignInRequestData _data;
+
   const AuthenticationEventSignIn(this._data);
+}
+
+final class AuthenticationEventSignUp extends AuthenticationEvent {
+  final SignUpRequestData _data;
+
+  const AuthenticationEventSignUp(this._data);
 }

@@ -8,7 +8,7 @@ abstract class AuthenticationRepository {
     required SignInRequestData data,
   });
 
-  Future<void> signUpWithCredentials({
+  Future<ApiResult<bool>> signUpWithCredentials({
     required SignUpRequestData data,
   });
 

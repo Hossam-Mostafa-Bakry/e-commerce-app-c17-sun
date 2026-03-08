@@ -16,6 +16,7 @@ class SignUpRequestData {
       "name": name,
       "email": email,
       "password": password,
+      "rePassword": password,
       "phone": phone,
     };
   }

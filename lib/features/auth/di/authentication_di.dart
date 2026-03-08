@@ -5,6 +5,7 @@ import 'package:ecommerce_app/features/auth/data/data_source/remote_authenticati
 import 'package:ecommerce_app/features/auth/data/repositories_imp/authentication_repository_imp.dart';
 import 'package:ecommerce_app/features/auth/domain/repositories/authentication_repositories.dart';
 import 'package:ecommerce_app/features/auth/domain/use_cases/sign_in_use_case.dart';
+import 'package:ecommerce_app/features/auth/domain/use_cases/sign_up_use_case.dart';
 import 'package:ecommerce_app/features/auth/presentation/manager/authentication_bloc.dart';
 import 'package:get_it/get_it.dart';
 
@@ -19,6 +20,9 @@ abstract class AuthenticationDi {
       )
       ..registerLazySingleton<SignInUseCase>(
         () => SignInUseCase(GetIt.I()),
+      )
+      ..registerLazySingleton(
+        () => SignUpUseCase(GetIt.I()),
       )
       ..registerLazySingleton<AuthenticationBloc>(
         () => AuthenticationBloc(),
