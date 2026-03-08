@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/widget/main_text_field.dart';
-import '../../../../core/widget/validators.dart';
+import '../../../../core/utils/validators.dart';
 
 class ProfileTab extends StatefulWidget {
   const ProfileTab({super.key});
