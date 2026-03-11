@@ -8,6 +8,7 @@ class SubCategoryItem extends StatelessWidget {
   final String title;
   final String image;
   final Function navigation;
+
   const SubCategoryItem(this.title, this.image, this.navigation, {super.key});
 
   @override
@@ -19,7 +20,7 @@ class SubCategoryItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           AspectRatio(
-            aspectRatio: 1,
+            aspectRatio: 1.2,
             child: Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(AppSize.s12),
@@ -33,9 +34,11 @@ class SubCategoryItem extends StatelessWidget {
               ),
             ),
           ),
-          Text(
-            title,
-            style: getRegularStyle(color: ColorManager.primary),
+          Expanded(
+            child: Text(
+              title,
+              style: getRegularStyle(color: ColorManager.primary),
+            ),
           )
         ],
       ),
